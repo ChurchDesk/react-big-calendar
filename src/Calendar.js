@@ -727,6 +727,7 @@ class Calendar extends React.Component {
      * or custom `Function(events, minimumStartDifference, slotMetrics, accessors)`
      */
     dayLayoutAlgorithm: DayLayoutAlgorithmPropType,
+    rowLimit: PropTypes.number,
   }
 
   static defaultProps = {
@@ -784,6 +785,7 @@ class Calendar extends React.Component {
     messages = {},
     components = {},
     formats = {},
+    rowLimit,
   }) {
     let names = viewNames(views)
     const msgs = message(messages)
@@ -814,6 +816,7 @@ class Calendar extends React.Component {
         resourceId: wrapAccessor(resourceIdAccessor),
         resourceTitle: wrapAccessor(resourceTitleAccessor),
       },
+      rowLimit,
     }
   }
 

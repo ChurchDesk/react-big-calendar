@@ -120,7 +120,7 @@ class MonthView extends React.Component {
         date={date}
         range={week}
         events={events}
-        maxRows={rowLimit}
+        maxRows={this.props.rowLimit ? this.props.rowLimit : rowLimit}
         selected={selected}
         selectable={selectable}
         components={components}
@@ -336,6 +336,7 @@ MonthView.propTypes = {
       y: PropTypes.number,
     }),
   ]),
+  rowLimit: PropTypes.number,
 }
 
 MonthView.range = (date, { localizer }) => {
