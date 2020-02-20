@@ -45,6 +45,9 @@ class BackgroundCells extends React.Component {
 
     return (
       <div className="rbc-row-bg">
+        <div className={'rbc-weeknumber-cel'} style={{ width: 17 }}>
+          {dates.weekNumber(range[0])}
+        </div>
         {range.map((date, index) => {
           let selected = selecting && index >= startIdx && index <= endIdx
           const { className, style } = getters.dayProp(date)

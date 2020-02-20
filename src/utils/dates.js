@@ -1,5 +1,6 @@
 /* eslint no-fallthrough: off */
 import * as dates from 'date-arithmetic'
+import moment from 'moment'
 
 export {
   milliseconds,
@@ -56,7 +57,6 @@ export function visibleDays(date, localizer) {
     days.push(current)
     current = dates.add(current, 1, 'day')
   }
-
   return days
 }
 
@@ -167,4 +167,8 @@ export function yesterday() {
 
 export function tomorrow() {
   return dates.add(dates.startOf(new Date(), 'day'), 1, 'day')
+}
+
+export function weekNumber(date) {
+  return moment(date).isoWeek()
 }

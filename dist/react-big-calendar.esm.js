@@ -26,6 +26,7 @@ import {
   gt,
   inRange as inRange$1,
 } from 'date-arithmetic'
+import moment$1 from 'moment'
 import chunk from 'lodash-es/chunk'
 import getPosition from 'dom-helpers/position'
 import { request, cancel } from 'dom-helpers/animationFrame'
@@ -285,6 +286,9 @@ function diff(dateA, dateB, unit) {
       +startOf(dateA, unit) / MILLI[unit] - +startOf(dateB, unit) / MILLI[unit]
     )
   )
+}
+function weekNumber(date) {
+  return moment$1(date).isoWeek()
 }
 
 var EventCell =
@@ -1249,6 +1253,16 @@ var BackgroundCells =
         {
           className: 'rbc-row-bg',
         },
+        React.createElement(
+          'div',
+          {
+            className: 'rbc-weeknumber-cel',
+            style: {
+              width: 17,
+            },
+          },
+          weekNumber(range[0])
+        ),
         range.map(function(date, index) {
           var selected = selecting && index >= startIdx && index <= endIdx
 
@@ -2450,6 +2464,16 @@ var MonthView =
           {
             className: 'rbc-row rbc-month-header',
           },
+          React.createElement(
+            'div',
+            {
+              className: 'rbc-weeknumber-cel',
+              style: {
+                width: 17,
+              },
+            },
+            'W'
+          ),
           this.renderHeaders(weeks[0])
         ),
         weeks.map(this.renderWeek),
@@ -5514,7 +5538,6 @@ var Calendar =
     _proto.UNSAFE_componentWillReceiveProps = function UNSAFE_componentWillReceiveProps(
       nextProps
     ) {
-      console.log('UNSAFE_componentWillReceiveProps')
       this.setState({
         context: this.getContext(nextProps),
       })

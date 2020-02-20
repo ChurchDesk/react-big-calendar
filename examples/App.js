@@ -4,8 +4,7 @@ import Intro from './Intro.md'
 import { render } from 'react-dom'
 import Layout from 'react-tackle-box/Layout'
 
-import localizer from 'react-big-calendar/lib/localizers/globalize'
-import globalize from 'globalize'
+import momentLocalizer from 'react-big-calendar/lib/localizers/moment'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'font-awesome/css/font-awesome.min.css'
@@ -29,9 +28,15 @@ import Dnd from './demos/dnd'
 import DndOutsideSource from './demos/dndOutsideSource'
 import Dropdown from 'react-bootstrap/lib/Dropdown'
 import MenuItem from 'react-bootstrap/lib/MenuItem'
+import moment from 'moment'
 
-const globalizeLocalizer = localizer(globalize)
-
+moment.locale('de', {
+  week: {
+    dow: 1,
+    doy: 1,
+  },
+})
+const globalizeLocalizer = momentLocalizer(moment)
 let demoRoot =
   'https://github.com/intljusticemission/react-big-calendar/tree/master/examples/demos'
 

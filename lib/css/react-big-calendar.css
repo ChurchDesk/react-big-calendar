@@ -250,6 +250,7 @@ button.rbc-input::-moz-focus-inner {
 .rbc-row {
   display: flex;
   flex-direction: row;
+  margin-left: 15px;
 }
 
 .rbc-row-segment {
@@ -281,9 +282,15 @@ button.rbc-input::-moz-focus-inner {
   height: 100%;
 }
 
+.rbc-weeknumber-cel {
+  border: 1px solid #ddd;
+  background-color: #eeeeee;
+}
+
 .rbc-month-header {
   display: flex;
   flex-direction: row;
+  margin-left: 0px;
 }
 
 .rbc-month-row {

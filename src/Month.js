@@ -82,6 +82,9 @@ class MonthView extends React.Component {
     return (
       <div className={clsx('rbc-month-view', className)}>
         <div className="rbc-row rbc-month-header">
+          <div className={'rbc-weeknumber-cel'} style={{ width: 17 }}>
+            W
+          </div>
           {this.renderHeaders(weeks[0])}
         </div>
         {weeks.map(this.renderWeek)}
